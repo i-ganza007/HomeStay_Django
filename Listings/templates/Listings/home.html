@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homestay</title>
+</head>
+<body>
+    <section>
+        <nav class="flex items-center justify-between px-20 pt-3">
+            <div>
+                <img src="{%static 'images/homestay_logo.png'%}" alt="">
+            </div>
+
+            <div>
+                <ul class="list-none flex gap-10 items-center">
+                    <li>About</li>
+
+                    <li>Tours</li>
+
+                    <li>Events</li>
+
+                    <li>Log In</li>
+
+                    <li class="bg-green-700 px-5 py-2 text-white">Sign Up</li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <section class="relative mt-3 flex flex-col items-center justify-center h-[500px] bg-cover bg-center bg-no-repeat"
+    style="background-image: url('{% static "images/kids_image.jpg" %}');">
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-[#034105] opacity-60"></div>
+
+    <!-- Content (Ensure it's above the overlay) -->
+    <div class="relative flex flex-col items-center gap-7 text-white">
+        <h1 class="w-48 text-center">
+            Experience Africa Like Never Before
+        </h1>
+        <p class="w-[500px] text-center">
+            Discover the beauty of Africa through authentic homestays with local hosts. Immerse yourself in vibrant cultures and create unforgettable memories.
+        </p>
+        <div class="flex gap-8">
+            <button class="bg-green-700 px-5 py-2 text-white">Explore Tours</button>
+            <button class="bg-white px-5 py-2 text-black">How It Works</button>
+        </div>
+        </div>
+    </section>
+    <section class="flex flex-col items-center gap-6 mt-10">
+        <h1 class="w-[450px] text-center text-green-700 font-bold text-2xl">
+            Discover the Simple Steps to Book Your Perfect African Homestay
+        </h1>
+        <p class="w-[610px] text-center">
+            At Homestay Africa, we simplify booking authentic homestays, allowing you to immerse in Africa's rich culture and vibrant communities.
+        </p>
+        <div class="flex gap-20">
+            <div class="flex flex-col w-72 gap-3">
+                <img src="{%static 'images/computer.jpg'%}" alt="">
+                <h2 class="font-bold">
+                    Browse Unique Stays
+                </h2>
+                <p>
+                    Explore a variety of homestays across Africa, from cozy village homes to urban retreats. Filter by your preferences, location, and budget.
+                </p>
+            </div>
+
+            <div class="flex flex-col w-72 gap-3">
+                <img src="{%static 'images/man.jpg'%}" alt="">
+                <h2 class="font-bold">
+                    Browse Unique Stays
+                </h2>
+                <p>
+                    Explore a variety of homestays across Africa, from cozy village homes to urban retreats. Filter by your preferences, location, and budget.
+                </p>
+            </div>
+
+            <div class="flex flex-col w-72 gap-3">
+                <img src="{%static 'images/card.jpg'%}" alt="">
+                <h2 class="font-bold">
+                    Browse Unique Stays
+                </h2>
+                <p>
+                    Explore a variety of homestays across Africa, from cozy village homes to urban retreats. Filter by your preferences, location, and budget.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

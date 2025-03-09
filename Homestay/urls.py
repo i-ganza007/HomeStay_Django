@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls), 
     path('properties/',views.properties,name='properties'),
     path('events/',views.events,name='event'),
+    path('',views.home,name='home'),
     path('properties/<int:pk>',views.property_view,name='Property_id')
 ]
