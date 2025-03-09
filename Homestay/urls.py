@@ -19,5 +19,7 @@ from django.urls import path
 from Listings import views
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('properties/',views.properties,name='properties')
+    path('properties/',views.properties,name='properties'),
+    path('events/',views.events,name='event'),
+    path('properties/<int:pk>',views.property_view,name='Property_id')
 ]
