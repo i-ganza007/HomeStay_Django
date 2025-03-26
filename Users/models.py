@@ -12,3 +12,4 @@ class User(AbstractUser):
     def __str__(self):
         return f'{self.first_name},{self.last_name}'
     
+# When using Abstract User , register it in the Project settings file for it to work 

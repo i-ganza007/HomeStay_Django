@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Listings import views
+# Adding JWT for securing API views : SessionBasedAuthentification and TokenBasedAuthentification
+# This helps for in reducing the db queries by storing session in headers , and unlike traditional authentification prevents CSFR attacks 
+# Create an api.https file in order to test the JWT tokens 
+
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('properties/',views.PropertyAPIView.as_view(),name='properties'),
     path('events/',views.EventAPIView.as_view(),name='event'),
+    path('events/<int:id>',views.EventAPIView.as_view(),name='Event_id'),
     path('',views.home,name='home'),
     path('property_listings/',views.property,name='property'),
     path('properties/<int:id>',views.IndPropertyView.as_view(),name='Property_id')

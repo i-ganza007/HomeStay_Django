@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from .models import Event, PropertyListing
-
-
+import datetime
+# use Model Serializers when you want concise code and do automatically handle serialization of the classes
+# Use Serializers when you want specific control 
 class PropertyListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = PropertyListing
@@ -17,7 +18,18 @@ class PropertyListingSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
+    days_to_event = serializers.SerializerMethodField()
     class Meta:
         model = Event
         fields = '__all__'
-        read_only_fields = ('description', 'event_name')
+    
+    def get_days_to_event(self,event_model):
+        return (event_model.date - datetime.date.today()).days
+    # def event_time(self,)
+
+
+
+# SerializerMethodField() --> This is serializer method that helps to add any custom logic to the serializer 
+# items = serializers.SerializerMethodField()
+# def get_items() --> get_<whatever_name_is_on_the_variable>:
+# add any logic and it will show up on the response

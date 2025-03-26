@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from ...models import PropertyListing
+from ...models import PropertyListing 
 from lorem_text import lorem
 
 class Command(BaseCommand):
