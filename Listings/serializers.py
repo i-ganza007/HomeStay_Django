@@ -1,9 +1,11 @@
 from rest_framework import serializers
 from .models import Event, PropertyListing
+from Users.serializers import UserSerializer
 import datetime
 # use Model Serializers when you want concise code and do automatically handle serialization of the classes
 # Use Serializers when you want specific control 
 class PropertyListingSerializer(serializers.ModelSerializer):
+    owner = UserSerializer()
     class Meta:
         model = PropertyListing
         fields = '__all__'

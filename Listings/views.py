@@ -1,11 +1,10 @@
-from tempfile import template
 from .models import PropertyListing , Event
 from django.shortcuts import render
 from .serializers import PropertyListingSerializer , EventSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
-
+# When writing permissions for your views , remember the permission function if special access is required 
 from django.shortcuts import get_object_or_404
 
 # @api_view(['GET'])
@@ -17,13 +16,19 @@ from django.shortcuts import get_object_or_404
 class PropertyAPIView(generics.ListAPIView):
     queryset = PropertyListing.objects.all()
     serializer_class = PropertyListingSerializer
+    
+
+class PropertyCreateAPIView(generics.CreateAPIView):
+    queryset = PropertyListing.objects.all()
+    serializer_class = PropertyListingSerializer
+
 
 # @api_view(['GET'])
 # def events(request):
 #     events = Event.objects.all()
 #     serializers = EventSerializer(events,many=True)
 #     return Response(serializers.data)
-class EventAPIView(generics.ListAPIView):
+class EventListAPIView(generics.ListAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
@@ -49,9 +54,3 @@ class IndPropertyView(generics.RetrieveAPIView):
 #     serializer = ----
 #     def create(self,request,*args,**kwargs):
 #         return super().create(---) --> This called the inherited class by calling super() and then calling the create() method w
-def home(request):
-    return render(request,'Listings/home.html')
-
-def property(request):
-    data = PropertyListing.objects.all()
-    return render(request,'Listings/properties.html',{'context':data})

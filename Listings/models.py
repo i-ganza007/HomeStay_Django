@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from Users.models import User
+from Homestay.settings import AUTH_USER_MODEL
 from Homestay import settings
 from django.db.models import CheckConstraint, Q , F
 
@@ -25,6 +26,7 @@ class PropertyListing(models.Model):
     location = models.CharField(max_length=15, blank=False, null=False)
     address = models.CharField(max_length=15)  
     is_urban = models.BooleanField(default=True)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='landlord')
     seen_listings = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='seen_properties', blank=True)
     potential_interest = models.PositiveIntegerField(default=0)
     bedrooms = models.PositiveIntegerField(blank=False, null=False)  
@@ -39,7 +41,7 @@ class PropertyListing(models.Model):
 
 
     def __str__(self):
-        return f'{self.prop_name} at {self.price} in {self.location}'
+        return f'{self.prop_name} at {self.price} in {self.location} by {self.owner.first_name} {self.owner.last_name}'
 
 def get_current_time():
     return datetime.datetime.now().time()
